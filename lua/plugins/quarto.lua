@@ -570,7 +570,7 @@ return {
     config = function()
       require('copilot').setup {
         suggestion = {
-          enabled = true,
+          enabled = false,
           auto_trigger = true,
           debounce = 75,
           keymap = {
@@ -586,7 +586,6 @@ return {
       }
     end,
   },
-
   -- send code from python/r/qmd documets to a terminal or REPL
   -- like ipython, R, bash
   {
