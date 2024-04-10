@@ -532,6 +532,7 @@ return {
           },
         },
         sources = {
+          { name = 'copilot' },
           { name = 'otter' }, -- for code chunks in quarto
           { name = 'path' },
           { name = 'nvim_lsp' },
@@ -567,24 +568,20 @@ return {
 
   { -- gh copilot
     'zbirenbaum/copilot.lua',
+    cmd="Copilot",
     config = function()
-      require('copilot').setup {
-        suggestion = {
-          enabled = false,
-          auto_trigger = true,
-          debounce = 75,
-          keymap = {
-            accept = '<c-a>',
-            accept_word = false,
-            accept_line = false,
-            next = '<M-]>',
-            prev = '<M-[>',
-            dismiss = '<C-]>',
-          },
-        },
+      require("copilot").setup({
+        suggestion = { enabled = false },
         panel = { enabled = false },
-      }
+      })
     end,
+  },
+
+  {
+    "zbirenbaum/copilot-cmp",
+    config = function ()
+      require("copilot_cmp").setup()
+    end
   },
   -- send code from python/r/qmd documets to a terminal or REPL
   -- like ipython, R, bash
@@ -654,7 +651,7 @@ return {
 
   -- preview equations
   {
-    'jbyuki/nabla.nvim',
+    '//jbyuki/nabla.nvim',
     keys = {
       { '<leader>qm', ':lua require"nabla".toggle_virt()<cr>', desc = 'toggle [m]ath equations' },
     },
