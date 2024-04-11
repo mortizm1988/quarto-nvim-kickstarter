@@ -241,7 +241,10 @@ return {
     'akinsho/toggleterm.nvim',
     opts = {
       open_mapping = [[<c-\>]],
-      direction = 'float',
+      direction = 'tab',
+      close_on_exit = true,
+      persist_mode = false,
+      auto_scroll = true,
     },
   },
 
