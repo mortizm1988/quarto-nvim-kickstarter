@@ -379,6 +379,7 @@ return {
         formatters_by_ft = {
           lua = { 'mystylua' },
           python = { 'isort', 'black' },
+          markdown = { 'prettier' },
         },
         formatters = {
           mystylua = {
