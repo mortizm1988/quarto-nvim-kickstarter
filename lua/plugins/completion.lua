@@ -35,7 +35,10 @@ return { -- completion
             luasnip.lsp_expand(args.body)
           end,
         },
-        completion = { completeopt = 'menu,menuone,noinsert' },
+        completion = {
+          autocomplete = false,
+          completeopt = 'menu,menuone,noinsert',
+        },
         mapping = {
           ['<C-f>'] = cmp.mapping.scroll_docs(-4),
           ['<C-d>'] = cmp.mapping.scroll_docs(4),
@@ -54,7 +57,7 @@ return { -- completion
             end
           end, { 'i', 's' }),
           ['<C-e>'] = cmp.mapping.abort(),
-          ['<c-y>'] = cmp.mapping.confirm {
+          ['<C-y>'] = cmp.mapping.confirm {
             select = true,
           },
           ['<CR>'] = cmp.mapping.confirm {
@@ -171,12 +174,13 @@ return { -- completion
           auto_trigger = true,
           debounce = 75,
           keymap = {
-            accept = '<Tab>',
+            accept = '<CR>',
             accept_word = false,
             accept_line = false,
-            next = '<M-]>',
-            prev = '<M-[>',
+            next = '<TAB-]>',
+            prev = '<TAB-[>',
             dismiss = '<C-]>',
+            refresh = '<C-r>',
           },
         },
         filetypes = {
